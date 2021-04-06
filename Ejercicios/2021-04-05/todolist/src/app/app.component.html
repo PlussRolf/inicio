@@ -1,0 +1,12 @@
+<input class="large"type="text" (keyup.enter)="addTask(texttask.value)" #texttask value="test">
+<button (click)="addTask(texttask.value)">Agregar Tarea</button>
+<hr>
+<table>
+  <tbody>
+    <tr *ngFor="let tasks of tasksList; index as id" (click)="taskDone(id, $event)">
+      <td class="label"><label [class.completed]="isDone(id)">{{tasks.description}}</label></td>
+      <td ><input type="checkbox" (click)="taskDone(id, $event) " [checked]=isDone(id)></td>
+      <td ><button (click)="removeTask(id)">X</button></td>
+    </tr>
+</tbody>
+</table>
