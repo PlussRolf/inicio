@@ -15,6 +15,8 @@ export class AppComponent {
     done: true
   }];
 
+  counter = 0;
+
   removeTask(id: number){
     this.tasksList.splice(id,1);
   }
@@ -25,12 +27,14 @@ export class AppComponent {
   }
 
   isDone(id: number){
+    console.log('isDone');
     return this.tasksList[id].done;
   }
 
-  taskDone(id: number,event: any){
-    this.tasksList[id].done = !this.tasksList[id].done;
-    console.log(event);
+  taskDone(id: number){
+    this.tasksList[id].done = this.tasksList[id].done === true ? false : true;
+    this.counter++;
+    console.log(this.counter);
   }
 }
 

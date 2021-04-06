@@ -3,9 +3,9 @@
 <hr>
 <table>
   <tbody>
-    <tr *ngFor="let tasks of tasksList; index as id" (click)="taskDone(id, $event)">
+    <tr *ngFor="let tasks of tasksList; index as id" (click)="taskDone(id)">
+      <td ><input type="checkbox" [checked]=isDone(id)></td>
       <td class="label"><label [class.completed]="isDone(id)">{{tasks.description}}</label></td>
-      <td ><input type="checkbox" (click)="taskDone(id, $event) " [checked]=isDone(id)></td>
       <td ><button (click)="removeTask(id)">X</button></td>
     </tr>
 </tbody>
